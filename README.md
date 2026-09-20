@@ -1,4 +1,4 @@
-# Decentralized dispatch on a wildfire-degraded road network
+# CAV Agents and Decentralized dispatch on a wildfire-degraded road network
 
 Simulation code for a study of autonomous emergency medical dispatch when the road network
 is being degraded by a wildfire and vehicles cannot always talk to each other.
