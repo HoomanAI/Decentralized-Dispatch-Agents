@@ -1,0 +1,15 @@
+\begin{table}
+\caption{Policy-learning ablation against belief-aware protocol myopic dispatch on the reduced synthetic training instance.}
+\label{tab:policy-ablation}
+\begin{tabular}{lrrrrrrr}
+\toprule
+variant & normalized_entropy & argmax_agreement & paired_difference & ci_95_lower & ci_95_upper & paired_p_value & environment_steps \\
+\midrule
+From scratch & 0.8112 & 0.6680 & -3.8139 & -4.3178 & -3.3100 & 0.0000 & 500015 \\
+Supervised clone & 0.0905 & 1.0000 & 0.0042 & -0.0044 & 0.0129 & 0.3256 & 0 \\
+Residual warm start, scalar critic & 0.0913 & 1.0000 & 0.0042 & -0.0044 & 0.0129 & 0.3256 & 599846 \\
+Residual warm start, counterfactual critic & 0.0937 & 1.0000 & 0.0042 & -0.0044 & 0.0129 & 0.3256 & 599073 \\
+Softened clone, counterfactual critic & 0.1054 & 1.0000 & 0.0042 & -0.0044 & 0.0129 & 0.3256 & 601750 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,6 @@
+phi_min,day_7_blocked_not_exposed,day_8_blocked_not_exposed,day_9_blocked_not_exposed,day_10_blocked_not_exposed,day_11_blocked_not_exposed,day_12_blocked_not_exposed,memory_effect_total,memory_active
+0.3,0,0,0,0,0,0,0,False
+0.4,0,0,0,0,0,0,0,False
+0.5,0,0,0,0,0,0,0,False
+0.6,0,0,0,0,0,0,0,False
+0.7,0,0,346,7,0,4,357,True

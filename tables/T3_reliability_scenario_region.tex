@@ -1,0 +1,47 @@
+% SYNTHETIC INPUT
+\begin{table*}
+\centering
+\caption{Scenario reliability grid and blocked-but-unexposed memory effect by dispatcher risk posture.}
+\label{tab:reliability-region}
+\textit{Panel A: scenario grid (parameters are not estimates).}\par
+\begin{tabular}{rrrlrrrl}
+\toprule
+alpha & gamma & half\_life\_days & status & recovery\_holds & relapse\_holds & reversal\_holds & parameter\_status \\
+\midrule
+0.25 & 0.10 & 6.58 & scenario\_parameter\_not\_estimate & False & True & False & scenario input, not estimate \\
+0.25 & 0.25 & 2.41 & scenario\_parameter\_not\_estimate & True & False & False & scenario input, not estimate \\
+0.25 & 0.50 & 1.00 & scenario\_parameter\_not\_estimate & False & False & False & scenario input, not estimate \\
+0.25 & 0.75 & 0.50 & scenario\_parameter\_not\_estimate & True & False & False & scenario input, not estimate \\
+0.25 & 1.00 & 0.00 & scenario\_parameter\_not\_estimate & True & False & False & scenario input, not estimate \\
+0.50 & 0.10 & 6.58 & scenario\_parameter\_not\_estimate & False & True & False & scenario input, not estimate \\
+0.50 & 0.25 & 2.41 & scenario\_parameter\_not\_estimate & False & True & False & scenario input, not estimate \\
+0.50 & 0.50 & 1.00 & scenario\_parameter\_not\_estimate & True & True & True & scenario input, not estimate \\
+0.50 & 0.75 & 0.50 & scenario\_parameter\_not\_estimate & True & True & True & scenario input, not estimate \\
+0.50 & 1.00 & 0.00 & scenario\_parameter\_not\_estimate & True & True & True & scenario input, not estimate \\
+0.75 & 0.10 & 6.58 & scenario\_parameter\_not\_estimate & False & False & False & scenario input, not estimate \\
+0.75 & 0.25 & 2.41 & scenario\_parameter\_not\_estimate & False & False & False & scenario input, not estimate \\
+0.75 & 0.50 & 1.00 & scenario\_parameter\_not\_estimate & False & True & False & scenario input, not estimate \\
+0.75 & 0.75 & 0.50 & scenario\_parameter\_not\_estimate & True & True & True & scenario input, not estimate \\
+0.75 & 1.00 & 0.00 & scenario\_parameter\_not\_estimate & True & True & True & scenario input, not estimate \\
+1.00 & 0.10 & 6.58 & scenario\_parameter\_not\_estimate & False & False & False & scenario input, not estimate \\
+1.00 & 0.25 & 2.41 & scenario\_parameter\_not\_estimate & False & False & False & scenario input, not estimate \\
+1.00 & 0.50 & 1.00 & scenario\_parameter\_not\_estimate & False & True & False & scenario input, not estimate \\
+1.00 & 0.75 & 0.50 & scenario\_parameter\_not\_estimate & True & True & True & scenario input, not estimate \\
+1.00 & 1.00 & 0.00 & scenario\_parameter\_not\_estimate & True & True & True & scenario input, not estimate \\
+\bottomrule
+\end{tabular}
+
+\textit{Panel B: risk-posture sweep at $\alpha=\gamma=0.75$.}\par
+\begin{tabular}{rrrrrrrrr}
+\toprule
+phi\_min & day\_7\_blocked\_not\_exposed & day\_8\_blocked\_not\_exposed & day\_9\_blocked\_not\_exposed & day\_10\_blocked\_not\_exposed & day\_11\_blocked\_not\_exposed & day\_12\_blocked\_not\_exposed & memory\_effect\_total & memory\_active \\
+\midrule
+0.30 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & False \\
+0.40 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & False \\
+0.50 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & False \\
+0.60 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & False \\
+0.70 & 0 & 0 & 346 & 7 & 0 & 4 & 357 & True \\
+\bottomrule
+\end{tabular}
+
+\end{table*}

@@ -1,0 +1,4 @@
+estimand,seed_count,belief_aware,perfect_information,contrast
+"Stage 4 fixed demand, patient-centric dispatcher",1,23.238625417902917,27.36517994472122,4.126554526818303
+"Stage 4 demand seed, vehicle-centric protocol",1,30.051089550031524,32.178022622553826,2.126933072522302
+Stage 7 matched vehicle-centric evaluation,30,25.96622476366486,28.918207765710385,2.951983002045523
