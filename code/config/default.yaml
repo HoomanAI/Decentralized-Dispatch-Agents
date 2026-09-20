@@ -1,0 +1,238 @@
+paths:
+  raw_data: data
+  processed_data: data/processed
+
+inputs:
+  roads: PDS_roads_daily_affected.csv
+  population: pop_PDS.csv
+  landcover_weights: dasymetric_landcover_weights.xlsx
+  affected_population: daily_affected_population_totals.xlsx
+
+validation:
+  days: [7, 8, 9, 10, 11, 12]
+  expected_source_features: 1923
+  expected_road_features: 1799
+  expected_routable_features: 1297
+  expected_stream_features: 114
+  expected_drain_features: 9
+  expected_population: 47831
+  expected_housing_units: 21138
+  expected_population_65_plus: 12276
+  expected_landcover_classes: 15
+  expected_duration_counts_all_features: [159, 995, 621, 138, 6, 4]
+  expected_duration_counts_roads_only: [149, 930, 587, 126, 5, 2]
+  expected_pds_daily_population: [1773.7, 6188.4, 2192.8, 79.0, 186.5, 186.5]
+  decimal_tolerance: 0.051
+
+reliability:
+  train_days: [7, 8, 9, 10, 11]
+  held_out_day: 12
+  closure_source_url: https://lab.data.ca.gov/dataset/caltrans-emergency-road-closures
+  closure_local_file: caltrans_emergency_road_closures_2025.csv
+  bootstrap_replicates: 200
+  bootstrap_seed: 202606
+  optimizer_restarts: 4
+  optimizer_tolerance: 1.0e-9
+  parameter_epsilon: 1.0e-6
+  scenario_alpha: [0.25, 0.375, 0.5, 0.75, 1.0]
+  scenario_gamma: [0.1, 0.25, 0.5, 0.75, 1.0]
+  scenario_alpha_concentration: [null, 50.0, 20.0]
+  scenario_phi_min: [0.3, 0.4, 0.5, 0.6, 0.7]
+  reversal_recovery_ratio: 0.25
+  reversal_min_arc_fraction: 0.10
+  passability_min_alpha: 0.5
+  passability_min_gamma: 0.75
+  policy_comparison_tolerance: 1.0e-6
+
+network:
+  seed: 202603
+  bbox:
+    west: -118.575
+    south: 34.020
+    east: -118.480
+    north: 34.105
+  candidate_node_count: 1050
+  routable_edge_count: 1297
+  arterial_edge_count: 138
+  local_edge_count: 1159
+  total_road_feature_count: 1799
+  target_routable_daily_counts: [1176, 360, 9, 4, 4, 266]
+  target_arterial_daily_counts: [125, 50, 2, 0, 0, 21]
+  target_local_daily_counts: [1051, 310, 7, 4, 4, 245]
+  target_road_duration_counts: [149, 930, 587, 126, 5, 2]
+  minimum_mean_degree: 2.3
+  maximum_mean_degree: 2.8
+  minimum_dead_end_share: 0.15
+  maximum_dead_end_share: 0.35
+  top_betweenness_fraction: 0.05
+  bpr_rho: 0.15
+  bpr_beta: 4.0
+  background_volume_fraction: 0.18
+  evacuation_volume_scale: 0.0008
+  minimum_capacity_fraction: 0.05
+  speed_kph:
+    trunk: 70
+    trunk_link: 50
+    primary: 55
+    primary_link: 45
+    secondary: 45
+    secondary_link: 40
+    tertiary: 35
+    tertiary_link: 30
+    living_street: 20
+    residential: 30
+    service: 20
+    unclassified: 25
+    hospital_access: 55
+  capacity_vehicles_per_hour:
+    trunk: 1800
+    trunk_link: 1200
+    primary: 1500
+    primary_link: 1000
+    secondary: 1200
+    secondary_link: 900
+    tertiary: 900
+    tertiary_link: 700
+    living_street: 350
+    residential: 600
+    service: 350
+    unclassified: 500
+    hospital_access: 1400
+
+reduced_network:
+  reduced_instance: true
+  generator: canyon_backbone
+  seed: 202608
+  bbox:
+    west: -118.575
+    south: 34.020
+    east: -118.480
+    north: 34.105
+  candidate_node_count: 283
+  backbone_node_count: 45
+  branch_count: 62
+  routable_edge_count: 350
+  arterial_edge_count: 37
+  local_edge_count: 313
+  total_road_feature_count: 350
+  target_routable_daily_counts: [317, 97, 2, 1, 1, 72]
+  target_arterial_daily_counts: [34, 14, 1, 0, 0, 6]
+  target_local_daily_counts: [283, 83, 1, 1, 1, 66]
+  target_routable_daily_fractions: [0.907, 0.278, 0.007, 0.003, 0.003, 0.205]
+  minimum_mean_degree: 2.3
+  maximum_mean_degree: 2.8
+  minimum_dead_end_share: 0.15
+  maximum_dead_end_share: 0.35
+  minimum_betweenness_concentration: 0.40
+  maximum_betweenness_concentration: 0.50
+  maximum_arterial_components: 1
+  top_betweenness_fraction: 0.05
+  bpr_rho: 0.15
+  bpr_beta: 4.0
+  background_volume_fraction: 0.18
+  evacuation_volume_scale: 0.0008
+  minimum_capacity_fraction: 0.05
+  speed_kph:
+    trunk: 70
+    trunk_link: 50
+    primary: 55
+    primary_link: 45
+    secondary: 45
+    secondary_link: 40
+    tertiary: 35
+    tertiary_link: 30
+    living_street: 20
+    residential: 30
+    service: 20
+    unclassified: 25
+    hospital_access: 55
+  capacity_vehicles_per_hour:
+    trunk: 1800
+    trunk_link: 1200
+    primary: 1500
+    primary_link: 1000
+    secondary: 1200
+    secondary_link: 900
+    tertiary: 900
+    tertiary_link: 700
+    living_street: 350
+    residential: 600
+    service: 350
+    unclassified: 500
+    hospital_access: 1400
+
+belief:
+  prior_strength: 8.0
+  discount: 0.95
+  corridor_pooling: 0.15
+
+demand:
+  operational_minutes: 720
+  provisional_fire_incidence: 0.010
+  provisional_evacuation_incidence: 0.030
+  vulnerable_weight: 2.0
+  temporal_profile: [0.7, 0.9, 1.2, 1.4, 1.3, 1.1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4]
+  triage_base_probabilities: [0.18, 0.34, 0.48]
+
+reduced_demand:
+  operational_minutes: 720
+  provisional_fire_incidence: 0.004
+  provisional_evacuation_incidence: 0.014
+  vulnerable_weight: 2.0
+  temporal_profile: [0.7, 0.9, 1.2, 1.4, 1.3, 1.1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4]
+  triage_base_probabilities: [0.18, 0.34, 0.48]
+  minimum_patients: 40
+  maximum_patients: 60
+
+environment:
+  seed: 202604
+  fleet_per_class: 4
+  battery_range_km: 180.0
+  service_minutes: 12.0
+  blocked_encounter_minutes: 5.0
+  phi_min: 0.5
+  upsilon: {arterial: 0.5, local: 0.5, gateway: 0.5}
+  scenario_alpha: {arterial: 0.375, local: 0.375, gateway: 0.375}
+  scenario_gamma: {arterial: 0.5, local: 0.5, gateway: 0.5}
+  scenario_alpha_concentration: null
+  alpha_heterogeneity_seed: 202605
+  bound_time_limit_seconds: 120
+  bound_delay_bin_minutes: 5
+  bound_max_start_options: 24
+  survival:
+    type_1: {a: 0.70, b: -0.055, c: 1.10, d: 0.20, priority: 3.0, lower: 0.35}
+    type_2: {a: 0.75, b: -0.025, c: 1.05, d: 0.18, priority: 2.0, lower: 0.35}
+    type_3: {a: 0.80, b: -0.010, c: 1.00, d: 0.15, priority: 1.0, lower: 0.35}
+
+policy_training:
+  scenario_alpha: 0.75
+  scenario_gamma: 0.75
+  phi_min: 0.7
+  scenario_alpha_concentration: null
+  reliability_regime: active_memory
+  seed: 202607
+  hidden_dim: 16
+  learning_rate: 0.0003
+  minimum_environment_steps: 500000
+  maximum_environment_steps: 750000
+  minimum_gradient_updates: 600
+  steps_per_update: 800
+  minibatch_size: 64
+  learning_curve_interval_steps: 10000
+  plateau_window_points: 8
+  plateau_relative_slope: 0.003
+  evaluation_seeds: 30
+  train_days: [8, 9, 10, 11]
+  ppo_epochs: 1
+  discount: 1.0
+  gae_lambda: 0.95
+  clip_ratio: 0.2
+  value_weight: 0.5
+  entropy_weight: 0.01
+  entropy_weight_final: 0.0001
+  entropy_anneal_fraction: 0.60
+  exploration_budget: [0.0, 0.0, 0.0]
+  augmentation_modes: [dilation, erosion, translation, erosion]
+  augmentation_buffer_degrees: 0.001
+  augmentation_translation_degrees: 0.0005
+  fleet_by_class: {A: 1, B: 2, C: 2}
